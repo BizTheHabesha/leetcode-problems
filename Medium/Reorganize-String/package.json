@@ -1,0 +1,22 @@
+{
+	"name": "reorganize-string",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"build": "babel src -d lib",
+		"start": "node src"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"chalk": "^5.3.0",
+		"lodash": "^4.17.21"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.22.10",
+		"@babel/core": "^7.22.11",
+		"@babel/preset-env": "^7.22.10"
+	}
+}
