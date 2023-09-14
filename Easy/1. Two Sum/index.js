@@ -1,3 +1,5 @@
+import TestingSuite from "../../suite.js";
+
 /**
  * @param {number[]} nums
  * @param {number} target
@@ -17,25 +19,20 @@ var twoSum = function (nums, target) {
 	return retval;
 };
 
-/**
- *
- * @param {number[]} arr1
- * @param {number[]} arr2
- * @return {boolean}
- */
-var arrEq = function (arr1, arr2) {
-	let reval = true;
-	arr1.every((n, i, arr) => {
-		if (n !== arr2[i]) reval = false;
-	});
-	return reval;
-};
+const test = new TestingSuite(twoSum, [
+	{
+		input: [[2, 7, 11, 15], 9],
+		output: [0, 1],
+	},
+	{
+		input: [[3, 2, 4], 6],
+		output: [1, 2],
+	},
+	{
+		input: [[3, 3], 6],
+		output: [0, 1],
+	},
+]);
+test.setName("twoSum");
 
-const case1 = arrEq(twoSum([2, 7, 11, 15], 9), [0, 1]);
-console.assert(case1, "Test 1 failed");
-
-const case2 = arrEq(twoSum([3, 2, 4], 6), [1, 2]);
-console.assert(case2, "Test 2 failed");
-
-const case3 = arrEq(twoSum([3, 3], 6), [0, 1]);
-console.assert(case3, "Test 3 failed");
+export { test as test1, twoSum };

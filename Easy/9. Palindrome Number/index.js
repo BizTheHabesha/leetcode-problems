@@ -1,3 +1,4 @@
+import TestingSuite from "../../suite.js";
 /**
  * @param {number} x
  * @return {boolean}
@@ -29,33 +30,37 @@ var isPalindrome = function (x) {
 	}
 	return true;
 };
+const test = new TestingSuite(isPalindrome, [
+	{
+		input: [121],
+		output: true,
+	},
+	{
+		input: [-121],
+		output: false,
+	},
+	{
+		input: [10],
+		output: false,
+	},
+	{
+		input: [-101],
+		output: false,
+	},
+	{
+		input: [5],
+		output: true,
+	},
+	{
+		input: [1221],
+		output: true,
+	},
+	{
+		input: [1234],
+		output: false,
+	},
+]);
 
-const case1var = 121;
-const case1 = isPalindrome(121);
-console.log(`Case 1 : ${case1var} : ${case1}`);
-console.assert(true, case1, "Case 1 failed");
+test.setName("isPalindrome");
 
-const case2var = -121;
-const case2 = isPalindrome(-121);
-console.log(`Case 2 : ${case2var} : ${case2}`);
-console.assert(true, !case2, "Case 2 failed");
-
-const case3var = 5;
-const case3 = isPalindrome(5);
-console.log(`Case 3 : ${case3var} : ${case3}`);
-console.assert(true, case3, "Case 3 failed");
-
-const case4var = 10;
-const case4 = isPalindrome(case4var);
-console.log(`Case 4 : ${case4var} : ${case4}`);
-console.assert(true, !case4, "Case 4 failed");
-
-const case5var = 1221;
-const case5 = isPalindrome(case5var);
-console.log(`Case 5 : ${case5var} : ${case5}`);
-console.assert(true, case5, "Case 5 failed");
-
-const case6var = 1234;
-const case6 = isPalindrome(case6var);
-console.log(`Case 6 : ${case6var} : ${case6}`);
-console.assert(true, !case6, "Case 6 failed");
+export { test as test9, isPalindrome };

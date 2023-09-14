@@ -1,3 +1,5 @@
+import TestingSuite from "../../suite.js	";
+
 class Stack {
 	// default value allows stack to initialize without an argument
 	constructor(container = []) {
@@ -45,26 +47,37 @@ var isValid = function (s) {
 	return true;
 };
 
-console.log(`CASE 1\n`);
-const case1var = "()";
-const case1 = isValid(case1var);
-console.assert(case1, `Case 1 ${case1var} should have been true!`);
-console.log("~~~~~~\n");
+const test = new TestingSuite(isValid, [
+	{
+		input: ["()"],
+		output: true,
+	},
+	{
+		input: ["()[]{}"],
+		output: true,
+	},
+	{
+		input: ["(]"],
+		output: false,
+	},
+	{
+		input: ["(("],
+		output: false,
+	},
+	{
+		input: ["{[]}"],
+		output: true,
+	},
+	{
+		input: ["{[]}]"],
+		output: false,
+	},
+	{
+		input: ["{[]}}"],
+		output: false,
+	},
+]);
 
-console.log(`CASE 2\n`);
-const case2var = "()[]{}";
-const case2 = isValid(case2var);
-console.assert(case2, `Case 2 ${case2var} should have been true!`);
-console.log("~~~~~~\n");
+test.setName(isValid.name);
 
-console.log(`CASE 3\n`);
-const case3var = "(]";
-const case3 = isValid(case3var);
-console.assert(!case3, `Case 3 ${case3var} should have been false!`);
-console.log("~~~~~~\n");
-
-console.log(`CASE 4\n`);
-const case4var = "((";
-const case4 = isValid(case4var);
-console.assert(!case4, `Case 4 ${case4var} should have been false!`);
-console.log("~~~~~~\n");
+export { test as test20, isValid };

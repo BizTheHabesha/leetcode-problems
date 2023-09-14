@@ -1,3 +1,4 @@
+import TestingSuite from "../../suite.js";
 /**
  * @param {string[]} strs
  * @return {string}
@@ -35,14 +36,21 @@ var lcpiteration1 = function (strs) {
 	return "";
 };
 
-const case1 = lcpiteration1(["flower", "flow", "flight"]);
-console.log(case1);
-console.assert(case1 === "fl", "Case 1 === 'fl'");
+const test = new TestingSuite(lcpiteration1, [
+	{
+		input: [["flower", "flow", "flight"]],
+		output: "fl",
+	},
+	{
+		input: [["dog", "racecar", "car"]],
+		output: "",
+	},
+	{
+		input: [["ab", "a"]],
+		output: "a",
+	},
+]);
 
-const case2 = lcpiteration1(["dog", "racecar", "car"]);
-console.log(case2);
-console.assert(case2 === "", "Case 2 === ''");
+test.setName("longestCommonPrefix");
 
-const case3 = lcpiteration1(["ab", "a"]);
-console.log(case3);
-console.assert(case3 === "a", "Case 3 === 'a'");
+export { test as test14, lcpiteration1 as longestCommonPrefix };
