@@ -1,3 +1,4 @@
+import TestingSuite from "../../suite.js";
 /**
  * @param {number[]} prices
  * @return {number}
@@ -35,15 +36,12 @@ var maxProfit = function (prices) {
 	}
 	return maxProfit > 0 ? maxProfit : 0;
 };
+const test = new TestingSuite(maxProfit, [
+	{ input: [7, 1, 5, 3, 6, 4], output: 7 },
+	{ input: [1, 2, 3, 4, 5], output: 4 },
+	{ input: [7, 6, 4, 3, 1], output: 0 },
+]);
 
-const case1 = maxProfit([7, 1, 5, 3, 6, 4]);
-console.log(`Case 1: [7,1,5,3,6,4] => 7 ? ${case1} `);
-console.assert(case1 === 7, "Case 1 Expected 7\n");
+test.setName("maxProfit");
 
-const case2 = maxProfit([1, 2, 3, 4, 5]);
-console.log(`Case 2: [1,2,3,4,5] => 4 ? ${case2}`);
-console.assert(case2 === 4, "Case 2 Expected 4\n");
-
-const case3 = maxProfit([7, 6, 4, 3, 1]);
-console.log(`Case 3: [7,6,4,3,1] => 0 ? ${case3}`);
-console.assert(case3 === 0, "Case 3 Expected 0\n");
+export { test as test122, maxProfit };
