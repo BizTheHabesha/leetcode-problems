@@ -40,6 +40,23 @@ export default class TestingSuite {
 	_debug = chalk.bold.magenta;
 	_trace = chalk.bold.cyan;
 	_static = chalk.bold.white;
+	/**
+	 *
+	 * @param {any[]} inputs
+	 * @returns
+	 */
+	_formatInputs(inputs) {
+		const formatted = inputs.map((input) => {
+			if (Array.isArray(input)) {
+				return `[${input}]`;
+			}
+			if (typeof input === "string") {
+				return `"${input}"`;
+			}
+			return input;
+		});
+		return formatted.join(", ");
+	}
 	_suite() {
 		let localCount = 0;
 		let passed = 0;
@@ -65,7 +82,11 @@ export default class TestingSuite {
 			console.log(this._static(`   | Test ${localCount} failed`));
 			console.log(
 				this._static(`   |`),
-				this._error(` input: ${input}, output: ${result}`)
+				this._error(
+					` inputs: ${this._formatInputs(
+						input
+					)}, output: ${JSON.stringify(result)}`
+				)
 			);
 			console.log(
 				this._static(`   |`),
