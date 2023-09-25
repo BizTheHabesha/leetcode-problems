@@ -18,5 +18,7 @@ const test = new TestingSuite(reorganizeString, [
 ]);
 
 test.setName("reorganizeString");
+test.debugName();
+test.run();
 
 export { test as test767, reorganizeString };

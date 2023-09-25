@@ -43,5 +43,7 @@ const test = new TestingSuite(maxProfit, [
 ]);
 
 test.setName("maxProfit");
+test.debugName();
+test.run();
 
 export { test as test122, maxProfit };
