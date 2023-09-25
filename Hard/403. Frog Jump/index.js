@@ -34,9 +34,13 @@ var canCross = function (stones) {
 	return true;
 };
 
-const suite = new TestingSuite(canCross, [
+const test = new TestingSuite(canCross, [
 	{ input: [0, 1, 3, 5, 6, 8, 12, 17], output: true },
 	{ input: [0, 1, 2, 3, 4, 8, 9, 11], output: false },
 ]);
 
-suite.run();
+test.setName("canCross");
+test.debugName();
+test.run();
+
+export { test as test403, canCross };

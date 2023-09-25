@@ -34,5 +34,7 @@ const test = new TestingSuite(maxSlidingWindow, [
 ]);
 
 test.setName("maxSlidingWindow");
+test.debugName();
+test.run();
 
 export { test as test239, maxSlidingWindow };
