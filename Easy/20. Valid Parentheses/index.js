@@ -79,5 +79,7 @@ const test = new TestingSuite(isValid, [
 ]);
 
 test.setName(isValid.name);
+test.debugName();
+test.run();
 
 export { test as test20, isValid };

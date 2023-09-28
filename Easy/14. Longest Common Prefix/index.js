@@ -52,5 +52,7 @@ const test = new TestingSuite(lcpiteration1, [
 ]);
 
 test.setName("longestCommonPrefix");
+test.debugName();
+test.run();
 
 export { test as test14, lcpiteration1 as longestCommonPrefix };

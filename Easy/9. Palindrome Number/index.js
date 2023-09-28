@@ -62,5 +62,7 @@ const test = new TestingSuite(isPalindrome, [
 ]);
 
 test.setName("isPalindrome");
+test.debugName();
+test.run();
 
 export { test as test9, isPalindrome };

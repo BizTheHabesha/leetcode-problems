@@ -29,5 +29,7 @@ const test = new TestingSuite(arraySign, [
 ]);
 
 test.setName("arraySign");
+test.debugName();
+test.run();
 
 export { test as test1822, arraySign };

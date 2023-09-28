@@ -34,5 +34,7 @@ const test = new TestingSuite(twoSum, [
 	},
 ]);
 test.setName("twoSum");
+test.debugName();
+test.run();
 
 export { test as test1, twoSum };

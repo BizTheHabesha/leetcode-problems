@@ -31,5 +31,7 @@ const test = new TestingSuite(generate, [
 ]);
 
 test.setName("pascalsTriangle");
+test.debugName();
+test.run();
 
 export { test as test118, generate as pascalsTriangle };
