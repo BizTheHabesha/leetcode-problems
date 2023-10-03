@@ -25,10 +25,18 @@ const suite = new TestingSuite(
 		{ input: ["world"], output: "world" },
 		{ input: ["hello world"], output: "hello world" },
 		{ input: ["fail"], output: "no fail" },
-	]
+	],
+	"Test Suite"
 );
 
-suite.setName("Test Suite");
+const failSuite = new TestingSuite(
+	"fail",
+	[{ input: ["hello"], output: "hello" }],
+	"failSuite"
+);
 
 suite.debugName();
 suite.run();
+
+failSuite.debugName();
+failSuite.run();
