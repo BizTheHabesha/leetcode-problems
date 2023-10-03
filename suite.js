@@ -40,6 +40,7 @@ export default class TestingSuite {
 	_debug = chalk.bold.magenta;
 	_trace = chalk.bold.cyan;
 	_static = chalk.bold.white;
+	_type = "function";
 	/**
 	 *
 	 * @param {any[]} inputs
@@ -115,12 +116,19 @@ export default class TestingSuite {
 	/**
 	 *
 	 * @constructor
-	 * @param {Function} func A function to test
+	 * @param {Function} testee A function to test
 	 * @param {[...{inputs: [any], output: any}]} tests An array of objects with input and output properties. The input property is the input to the function and the output property is the expected output.
+	 * @param {string | undefined} name optional name of the test suite
 	 */
-	constructor(func, tests = []) {
-		typeof func === "";
-		this.func = func;
+	constructor(testee, tests = [], name) {
+		this.name = name ? name : "Unnamed Test Suite";
+		typeof testee === "function"
+			? null
+			: (console.log(
+					this._error(`\n${this.name}: Testee is not a function!\n`)
+			  ),
+			  (this._type = "error"));
+		this.func = testee;
 		this.tests = tests;
 		this.tests.length === 0
 			? console.log(
@@ -141,6 +149,10 @@ export default class TestingSuite {
 
 	run() {
 		console.log(this._info(`  Found ${this.count} tests...`));
+		if (this._type === "error")
+			return console.log(
+				this._error("  Cannot run, testee is not a function!") + "\n"
+			);
 		this._suite();
 	}
 	/**
