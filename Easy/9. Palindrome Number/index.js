@@ -65,4 +65,4 @@ test.setName("isPalindrome");
 test.debugName();
 test.run();
 
-export { test as test9, isPalindrome };
+export { test as test9, isPalindrome as isPalindromeNumber };
