@@ -1,2 +1,2 @@
 # leetcode-problems
-My leetcode problem attempts, organized by difficult then number. Includes a search utility to find a solution or show data.
+My leetcode problem attempts, organized by difficulty then number. Will include a search utility to find problems and my solutions.
