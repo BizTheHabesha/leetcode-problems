@@ -121,7 +121,7 @@ export default class TestingSuite {
 	 * @param {string | undefined} name optional name of the test suite
 	 */
 	constructor(testee, tests = [], name) {
-		this.name = name ? name : "Unnamed Test Suite";
+		this.name = name ? name : testee.name;
 		typeof testee === "function"
 			? null
 			: (console.log(
